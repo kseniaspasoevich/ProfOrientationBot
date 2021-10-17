@@ -1,0 +1,5 @@
+"""
+Token
+s
+"""
+cfs = '2035710781:AAE3iXeR39RKgCi288ZnVOn2LS8czGGxhKQ'
