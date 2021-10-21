@@ -27,12 +27,12 @@ async def process_command_two(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     buttons = ['Обучение', 'Студенческие отряды']
     keyboard.add(*buttons)
-    await message.answer('Выберите категорию, пожалуйста.', reply_markup=keyboard)
+    await message.answer('Выберите категорию', reply_markup=keyboard)
 
 
 @dp.message_handler(commands='help')
 async def process_help_command(message: types.Message):
-    await message.reply('Напиши мне что-нибудь, и я отправлю этот текст тебе в ответ!')
+    await message.reply('Напиши мне что-нибудь')
 
 
 @dp.message_handler()
