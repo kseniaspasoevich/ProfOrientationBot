@@ -19,7 +19,7 @@ async def process_start_command(message: types.Message):
 
 @dp.message_handler(commands='1')
 async def process_command_one(message: types.Message):
-    await message.reply('Хорошо!\n''Давайте проведем тест!')
+    await message.reply('Давайте проведем тест!')
 
 
 @dp.message_handler(commands='2')
