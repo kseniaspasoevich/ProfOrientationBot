@@ -1,17 +1,12 @@
 import asyncio
-
 from aiogram import Bot
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import Dispatcher
 from aiogram.types import BotCommand
-
 from src.choice1 import register_handlers_basic_commands
 from src.choice2 import register_handlers_command_two
 from src.config import cfs
 from src.test import register_handlers_ege
-
-
-# logger = logging.getLogger(__name__)
 
 
 async def set_commands(bot: Bot):
@@ -26,13 +21,6 @@ async def set_commands(bot: Bot):
 
 
 async def main():
-    '''
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-    )
-    logger.error("Starting bot")
-    '''
 
     bot = Bot(token=cfs)
     dp = Dispatcher(bot, storage=MemoryStorage())
