@@ -4,6 +4,7 @@ from aiogram import Bot
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import Dispatcher
 from aiogram.types import BotCommand
+
 from src.choice1 import register_handlers_basic_commands
 from src.choice2 import register_handlers_command_two
 from src.config import cfs
