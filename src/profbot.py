@@ -5,10 +5,10 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import Dispatcher
 from aiogram.types import BotCommand
 
-from src.choice1 import register_handlers_basic_commands
-from src.choice2 import register_handlers_command_two
-from src.config import cfs
-from src.test import register_handlers_ege
+from choice1 import register_handlers_basic_commands
+from choice2 import register_handlers_command_two
+from config import cfs
+from test import register_handlers_ege
 
 
 async def set_commands(bot: Bot):
