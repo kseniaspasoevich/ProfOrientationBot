@@ -2,10 +2,7 @@ from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import StatesGroup, State
 
-available_ege_disciplines = ['информатика', 'биология', 'физика'
-    , 'химия', 'обществознание', 'иностранный язык'
-    , 'базовая математика', 'профильная математика', 'литература'
-    , 'история']
+available_ege_disciplines = ['информатика', 'биология', 'физика', 'химия', 'обществознание', 'иностранный язык', 'базовая математика', 'профильная математика', 'литература', 'история']
 
 
 class ChooseDiscipline(StatesGroup):
@@ -16,8 +13,7 @@ async def choose_disciplines2(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     for name in available_ege_disciplines:
         keyboard.add(name)
-    await message.answer('Выберите предметы, которые бы хотели сдавать\n'
-                         'НАПОМИНАНИЕ: Русский язык уже включён!', reply_markup=keyboard)
+    await message.answer('Выберите предметы, которые бы хотели сдавать\nНАПОМИНАНИЕ: Русский язык уже включён!', reply_markup=keyboard)
     await ChooseDiscipline.waiting_for_discipline_name.set()
 
 
@@ -48,6 +44,6 @@ async def all_disciplines_chosen(message: types.Message, state: FSMContext):
 
 
 def register_handlers_ege(dp: Dispatcher):
-    dp.register_message_handler(choose_disciplines2, commands="test", state="*")
+    dp.register_message_handler(choose_disciplines2, commands='test', state='*')
     dp.register_message_handler(discipline_chosen, state=ChooseDiscipline.waiting_for_discipline_name)
     # dp.register_message_handler(all_disciplines_chosen, state=ChooseDiscipline.waiting_for_discipline_name)

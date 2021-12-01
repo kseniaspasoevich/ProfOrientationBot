@@ -1,4 +1,4 @@
-from aiogram import types, bot, Dispatcher
+from aiogram import types, Dispatcher
 
 
 async def process_start_command(message: types.Message):
