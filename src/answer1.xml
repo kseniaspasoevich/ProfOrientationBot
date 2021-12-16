@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<tasks>
+<special n="1">
+	<number>12.03.04</number><name>Биотехнические системы и технологии</name>
+	<number>19.03.01</number><name>Биотехнология</name>
+</special>
+<special n="2">
+	<number>41.03.01</number><name>Зарубежное регионоведение</name>
+</special>
+<special n="3"></special>
+<special n="4">
+	<number>19.03.01</number><name>Биотехнология</name>
+</special>
+<special n="5">
+	<number>19.03.04</number><name>Технология продукции и организация общественного питания</name>
+</special>
+<special n="6">
+	<number>01.03.02</number><name>Прикладная математика и информатика</name>
+	<number>03.03.01</number><name>Прикладные математика и физика</name>
+	<number>03.03.02</number><name>Физика</name>
+	<number>08.03.01</number><name>Строительство</name>
+	<number>08.05.01</number><name>Строительство уникальных зданий и сооружений</name>
+	<number>12.03.04</number><name>Биотехнические системы и технологии</name>
+	<number>16.03.01</number><name>Техническая физика</name>
+	<number>13.03.01</number><name>Теплоэнергетика и теплотехника</name>
+	<number>13.03.02</number><name>Электроэнергетика и электротехника</name>
+	<number>13.03.03</number><name>Энергетическое машиностроение</name>
+	<number>14.03.01</number><name>Ядерная энергетика и теплофизика</name>
+	<number>14.05.02</number><name>Атомные станции: проектирование, эксплуатация и инжиниринг</name>
+</special>
+<special n="7"></special>
+<special n="8">
+	<number>03.03.02</number><name>Физика</name>
+	<number>15.03.03</number><name>Прикладная механика</name>
+	<number>27.03.01</number><name>Стандартизация и метрология</name>
+	<number>27.03.02</number><name>Управление качеством</name>
+	<number>15.03.01</number><name>Машиностроение</name>
+	<number>15.03.02</number><name>Технологические машины и оборудование</name>
+	<number>15.03.04</number><name>Автоматизация технологических процессов и производств</name>
+	<number>15.03.05</number><name>Конструкторско-технологическое обеспечение машиностроительных производств</name>
+	<number>15.03.06</number><name>Мехатроника и робототехника</name>
+	<number>22.03.01</number><name>Материаловедение и технологии материалов</name>
+	<number>23.03.02</number><name>Наземные транспортно-технологические комплексы</name>
+	<number>28.03.01</number><name>Нанотехнологии и микросистемная техника</name>
+</special>
+<special n="9">
+	<number>10.03.01</number><name>Информационная безопасность</name>
+	<number>10.05.01</number><name>Компьютерная безопасность</name>
+	<number>10.05.03</number><name>Информационная безопасность автоматизированных систем</name>
+	<number>10.05.04</number><name>Информационно-аналитические системы безопасности</name>
+	<number>02.03.01</number><name>Математика и компьютерные науки</name>
+	<number>02.03.02</number><name>Фундаментальная информатика и информационные технологии</name>
+	<number>02.03.03</number><name>Математическое обеспечение и администрирование информационных систем</name>
+	<number>09.03.01</number><name>Информатика и вычислительная техника</name>
+	<number>09.03.02</number><name>Информационные системы и технологии</name>
+	<number>09.03.03</number><name>Прикладная информатика</name>
+	<number>09.03.04</number><name>Программная инженерия</name>
+	<number>27.03.02</number><name>Управление качеством</name>
+	<number>27.03.03</number><name>Системный анализ и управление</name>
+	<number>27.03.04</number><name>Управление в технических системах</name>
+	<number>27.03.05</number><name>Инноватика</name>
+	<number>27.03.01</number><name>Стандартизация и метрология</name>
+	<number>27.03.02</number><name>Управление качеством</name>
+	<number>28.03.01</number><name>Нанотехнологии и микросистемная техника</name>
+	<number>11.03.01</number><name>Радиотехника</name>
+	<number>11.03.02</number><name>Инфокоммуникационные технологии и системы связи</name>
+	<number>11.03.04</number><name>Электроника и наноэлектроника</name>
+	<number>16.03.01</number><name>Техническая физика</name>
+	<number>13.03.01</number><name>Теплоэнергетика и теплотехника</name>
+	<number>13.03.02</number><name>Электроэнергетика и электротехника</name>
+	<number>13.03.03</number><name>Энергетическое машиностроение</name>
+	<number>15.03.06</number><name>Мехатроника и робототехника</name>
+</special>
+<special n="10">
+	<number>15.03.01</number><name>Машиностроение</name>
+	<number>15.03.04</number><name>Автоматизация технологических процессов и производств</name>
+	<number>15.03.05</number><name>Конструкторско-технологическое обеспечение машиностроительных производств</name>
+	<number>15.03.06</number><name>Мехатроника и робототехника</name>
+	<number>22.03.01</number><name>Материаловедение и технологии материалов</name>
+	<number>22.03.02</number><name>Металлургия</name>
+	<number>29.03.04</number><name>Технология художественной обработки материалов</name>
+</special>
+<special n="11">
+	<number>22.03.01</number><name>Материаловедение и технологии материалов</name>
+</special>
+<special n="12">
+	<number>08.03.01</number><name>Строительство</name>
+	<number>54.03.01</number><name>Дизайн</name>
+	<number>08.05.01</number><name>Строительство уникальных зданий и сооружений</name>
+	<number>15.03.01</number><name>Машиностроение</name>
+	<number>14.05.02</number><name>Атомные станции: проектирование, эксплуатация и инжиниринг</name>
+</special>
+<special n="13">
+	<number>23.03.01</number><name>Технология транспортных процессов</name>
+	<number>23.03.02</number><name>Наземные транспортно-технологические комплексы</name>
+</special>
+<special n="14"></special>
+<special n="15"></special>
+<special n="16"></special>
+<special n="17">
+	<number>42.03.01</number><name>Реклама и связи с общественностью</name>
+	<number>42.03.03</number><name>Издательское дело</name>
+</special>
+<special n="18">
+	<number>42.03.03</number><name>Издательское дело</name>
+</special>
+<special n="19">
+	<number>42.03.01</number><name>Реклама и связи с общественностью</name>
+	<number>20.03.01</number><name>Техносферная безопасность</name>
+	<number>38.03.02</number><name>Менеджмент</name>
+	<number>38.03.03</number><name>Управление персоналом</name>
+	<number>38.03.04</number><name>Государственное и муниципальное управление</name>
+	<number>43.03.02</number><name>Туризм</name>
+	<number>43.03.03</number><name>Гостиничное дело</name>
+</special>
+<special n="20">
+	<number>44.03.02</number><name>Психолого-педагогическое образование</name>
+	<number>45.03.02</number><name>Лингвистика</name>
+</special>
+<special n="21">
+	<number>40.03.01</number><name>Юриспруденция</name>
+	<number>40.05.03</number><name>Судебная экспертиза</name>
+	<number>38.03.04</number><name>Государственное и муниципальное управление</name>
+	<number>38.03.07</number><name>Товароведение</name>
+</special>
+<special n="22">
+	<number>42.03.01</number><name>Реклама и связи с общественностью</name>
+	<number>19.03.04</number><name>Технология продукции и организация общественного питания</name>
+	<number>38.03.06</number><name>Торговое дело</name>
+	<number>43.03.02</number><name>Туризм</name>
+	<number>43.03.03</number><name>Гостиничное дело</name>
+	<number>38.03.07</number><name>Товароведение</name>
+</special>
+<special n="23">
+	<number>01.03.03</number><name>Механика и математическое моделирование</name>
+	<number>01.03.02</number><name>Прикладная математика и информатика</name>
+	<number>03.03.01</number><name>Прикладные математика и физика</name>
+	<number>10.03.01</number><name>Информационная безопасность</name>
+	<number>10.05.01</number><name>Компьютерная безопасность</name>
+	<number>10.05.03</number><name>Информационная безопасность автоматизированных систем</name>
+	<number>10.05.04</number><name>Информационно-аналитические системы безопасности</name>
+	<number>02.03.01</number><name>Математика и компьютерные науки</name>
+	<number>02.03.02</number><name>Фундаментальная информатика и информационные технологии</name>
+	<number>02.03.03</number><name>Математическое обеспечение и администрирование информационных систем</name>
+	<number>09.03.01</number><name>Информатика и вычислительная техника</name>
+	<number>09.03.02</number><name>Информационные системы и технологии</name>
+	<number>09.03.03</number><name>Прикладная информатика</name>
+	<number>09.03.04</number><name>Программная инженерия</name>
+	<number>27.03.02</number><name>Управление качеством</name>
+	<number>27.03.03</number><name>Системный анализ и управление</name>
+	<number>27.03.04</number><name>Управление в технических системах</name>
+	<number>27.03.05</number><name>Инноватика</name>
+	<number>38.03.05</number><name>Бизнес-информатика</name>
+</special>
+<special n="24">
+	<number>38.03.01</number><name>Экономика</name>
+	<number>38.03.02</number><name>Менеджмент</name>
+	<number>38.03.03</number><name>Управление персоналом</name>
+	<number>38.03.05</number><name>Бизнес-информатика</name>
+	<number>38.03.06</number><name>Торговое дело</name>
+	<number>38.03.07</number><name>Товароведение</name>
+</special>
+<special n="25">
+	<number>41.03.01</number><name>Зарубежное регионоведение</name>
+	<number>45.03.02</number><name>Лингвистика</name>
+</special>
+<special n="26">
+	<number>54.03.01</number><name>Дизайн</name>
+	<number>15.03.02</number><name>Технологические машины и оборудование</name>
+	<number>29.03.04</number><name>Технология художественной обработки материалов</name>
+</special>
+<special n="27"></special>
+<special n="28"></special>
+<special n="29"></special>
+</tasks>
