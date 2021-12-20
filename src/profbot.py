@@ -1,14 +1,36 @@
 import asyncio
+from tkinter.tix import Form
 
-from aiogram import Bot
+import dp
+import telebot
+from aiogram import Bot, Dispatcher, types
+from aiogram.bot import bot
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from aiogram.dispatcher import Dispatcher
-from aiogram.types import BotCommand
+from aiogram.dispatcher import Dispatcher, FSMContext
+from aiogram.dispatcher.filters.state import StatesGroup, State
+from aiogram.types import BotCommand, message
+
+import aiogram.utils.markdown as md
+from aiogram import Bot, Dispatcher, types
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+from aiogram.dispatcher import FSMContext
+from aiogram.dispatcher.filters import Text
+from aiogram.dispatcher.filters.state import State, StatesGroup
+from aiogram.types import ParseMode
+from aiogram.utils import executor
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
+
+from aiogram import Dispatcher
+from aiogram.dispatcher.filters.state import StatesGroup
+from aiogram.types import message
 
 from src.choice1 import register_handlers_basic_commands
 from src.choice2 import register_handlers_command_two
 from src.config import cfs
-from src.test import register_handlers_ege
+from src.test1 import Test, MAX_QUESTIONS, button_to_value, Answers, register_handlers_test
+
+bot = Bot(token=cfs)
+dp = Dispatcher(bot, storage=MemoryStorage())
 
 
 async def set_commands(bot: Bot):
@@ -22,14 +44,15 @@ async def set_commands(bot: Bot):
     await bot.set_my_commands(commands)
 
 
+class GetAnswer(StatesGroup):
+    answer = State()
+
+
+# здесь вызываем бота
 async def main():
-
-    bot = Bot(token=cfs)
-    dp = Dispatcher(bot, storage=MemoryStorage())
-
     register_handlers_command_two(dp)
     register_handlers_basic_commands(dp)
-    register_handlers_ege(dp)
+    register_handlers_test(dp)
 
     await set_commands(bot)
 
