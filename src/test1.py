@@ -1,7 +1,7 @@
 from xml.dom import minidom
 
 # в  питоне констант нет поэтому можно делать так
-from aiogram import Dispatcher, types
+from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.types import message
@@ -16,6 +16,7 @@ def MAX_QUESTIONS():
 
 
 class Test:
+
     def __init__(self):
         self.counters = [0] * SIZE_CONSTANT()
         self.questionCounter = 0
@@ -24,7 +25,8 @@ class Test:
                         "номером " \
                         "поставьте два плюса (++), если просто нравится - один плюс (+), если не знаете, сомневаетесь " \
                         "- " \
-                        "ноль (0), если не нравится - один минус (-), а если очень не нравиться - два минуса (--)."
+                        "ноль (0), если не нравится - один минус (-), а если очень не нравиться - два минуса (--). " \
+                        " Исправим это позже. НАЧИНАЕМ ТЕСТ: Нажмите команду /begin"
         self.startText = "Любите ли Вы? Нравится ли Вам? Хотели бы Вы "
         pass
 
@@ -96,7 +98,7 @@ class Answers:
 
 # т.к. в питоне нет switch, то приходится пользоваться словарями
 button_to_value = {
-    'Дa': 2,
+    'Да': 2,
     'Скорее да, чем нет': 1,
     'Не знаю': 0,
     'Скорее нет, чем да': -1,
@@ -117,39 +119,22 @@ async def set_answers_to_keyboards(message: types.Message):
     for response in button_to_value:
         keyboard.add(response)
     await GetAnswer.answer.set()
-    await message.answer('Выберите ответ', reply_markup=keyboard)
-
-
-# здесь происходит проверка ответа, введеного пользоавтелем
-async def check_answers(message: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    await message.reply("Выбери ответ из списка ниже", reply_markup=keyboard)
+    await message.answer(a.condText, reply_markup=keyboard)
 
 
 async def process_answer(message: types.Message, state: FSMContext):
-    await state.update_data(chosen_disc=message.text.lower())
-    async with state.proxy() as data:
-        data['asw'] = message.text
-        print(a.condText)  # Это сообщение о том как заполнять тест
-        for index in range(MAX_QUESTIONS()):
-            print(a.question())
-            # пихаем его в тескт сообщения или куда там удобно, главное чтобы пользователь видел этот текств  боте
-            # Тут нужно ждать ответ от человека в данном случае достаточно получить текст нажатой кнопки, а потом уже
-            # бед не будет
-            asw = message.text
-            data['answer'] = asw
-            print(button_to_value[asw])
-            a.answerquestion(button_to_value[asw])
-
-    print(Answers.getAnswer(Answers, a.getresult()))
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    for size in button_to_value:
-        keyboard.add(size)
-    await GetAnswer.next()
-    await message.reply("What next?")
+    print(a.condText)  # Это сообщение о том как заполнять тест, почему-то не выводится в консоли, но в боте нормально
+for index in range(MAX_QUESTIONS()):
+    print(a.getquestion())
+    # пихаем его в тескт сообщения или куда там удобно, главное чтобы пользователь видел этот текств  боте
+    # Тут нужно ждать ответ от человека в данном случае достаточно получить текст нажатой кнопки, а потом уже бед не
+    # будет
+    asw = 'Да'  # input()
+    print(button_to_value[asw])
+    a.answerquestion(button_to_value[asw])
+print(Answers.getAnswer(Answers, a.getresult()))
 
 
 def register_handlers_test(dp: Dispatcher):
-    dp.register_message_handler(set_answers_to_keyboards, commands="/test", state="*")
+    dp.register_message_handler(set_answers_to_keyboards, commands="test", state="*")
     dp.register_message_handler(process_answer, state=GetAnswer.answer)
-    dp.register_message_handler(lambda message: not message.text.isdigit(), state=GetAnswer.answer)

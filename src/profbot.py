@@ -27,7 +27,7 @@ from aiogram.types import message
 from src.choice1 import register_handlers_basic_commands
 from src.choice2 import register_handlers_command_two
 from src.config import cfs
-from src.test1 import Test, MAX_QUESTIONS, button_to_value, Answers, register_handlers_test
+from src.test1 import *
 
 bot = Bot(token=cfs)
 dp = Dispatcher(bot, storage=MemoryStorage())
