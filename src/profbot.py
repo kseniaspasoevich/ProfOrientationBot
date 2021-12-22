@@ -44,10 +44,6 @@ async def set_commands(bot: Bot):
     await bot.set_my_commands(commands)
 
 
-class GetAnswer(StatesGroup):
-    answer = State()
-
-
 # здесь вызываем бота
 async def main():
     register_handlers_command_two(dp)

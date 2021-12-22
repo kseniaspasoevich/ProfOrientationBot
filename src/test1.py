@@ -3,6 +3,7 @@ from xml.dom import minidom
 # в  питоне констант нет поэтому можно делать так
 from aiogram import types, Dispatcher
 from aiogram.dispatcher import FSMContext
+from aiogram.dispatcher.filters import state
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.types import message
 
@@ -122,19 +123,23 @@ async def set_answers_to_keyboards(message: types.Message):
     await message.answer(a.condText, reply_markup=keyboard)
 
 
-async def process_answer(message: types.Message, state: FSMContext):
-    print(a.condText)  # Это сообщение о том как заполнять тест, почему-то не выводится в консоли, но в боте нормально
-for index in range(MAX_QUESTIONS()):
-    print(a.getquestion())
-    # пихаем его в тескт сообщения или куда там удобно, главное чтобы пользователь видел этот текств  боте
-    # Тут нужно ждать ответ от человека в данном случае достаточно получить текст нажатой кнопки, а потом уже бед не
-    # будет
-    asw = 'Да'  # input()
-    print(button_to_value[asw])
-    a.answerquestion(button_to_value[asw])
-print(Answers.getAnswer(Answers, a.getresult()))
+# здесь начинаем тест
+async def begin_test(message: types.Message):
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    for response in button_to_value:
+        keyboard.add(response)
+    await GetAnswer.answer.set()
+    await message.answer(a.getquestion())
+
+
+async def process_chosen_answers(message: types.Message, state: FSMContext):
+    await state.update_data(chosen_answer=message.text.lower())
+    # Для последовательных шагов можно не указывать название состояния, обходясь next()
+    await GetAnswer.next()
+    await message.answer(Answers.getAnswer(Answers, a.getresult()))
 
 
 def register_handlers_test(dp: Dispatcher):
-    dp.register_message_handler(set_answers_to_keyboards, commands="test", state="*")
-    dp.register_message_handler(process_answer, state=GetAnswer.answer)
+    dp.register_message_handler(set_answers_to_keyboards, commands="test", state="*")  # ok
+    dp.register_message_handler(begin_test, commands="begin", state="*")  # ok
+    dp.register_message_handler(process_chosen_answers, state=GetAnswer.answer)
