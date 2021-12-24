@@ -1,0 +1,5 @@
+version: '3'
+services:
+ profbot:
+   build: .
+   image: alexandermey/profbot-image:latest

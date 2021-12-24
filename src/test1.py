@@ -16,7 +16,7 @@ class Test:
     def __init__(self):
         self.counters = [0] * SIZE_CONSTANT()
         self.questionCounter = 0
-        self.xmldoc = minidom.parse('src/test1.xml')
+        self.xmldoc = minidom.parse('fixture/test1.xml')
         self.condText = "Если Вам очень нравится то, о чем спрашивается в вопросе, в своём ответе выберите вариант " \
                         ", который  " \
                         "наиболее точно описывает ваше отношение."
@@ -58,7 +58,7 @@ class Test:
 
 
 class Answers:
-    xmldoc = minidom.parse('src/answer1.xml')
+    xmldoc = minidom.parse('fixture/answer1.xml')
     xmldoc.normalize()
     startText = "Вам подходят следующие специальности:\n"
     emptyText = "К сожалению в данный момент в Политехническом университете нет подходящих для Вас специальностей."
@@ -66,24 +66,27 @@ class Answers:
     http = "https://dep.spbstu.ru/edu/"
 
     def getAnswer(self, number):  # number - это максимальный counters
-        if number == 14:
-            return self.warText
-        specials = self.xmldoc.getElementsByTagName('special')
+        if number >= 29:
+            raise ValueError('Number of option can\'t be bigger than 29')
+        else:
+            if number == 14:
+                return self.warText
+            specials = self.xmldoc.getElementsByTagName('special')
 
-        if not specials[number].childNodes:
-            return self.emptyText
+            if not specials[number].childNodes:
+                return self.emptyText
 
-        answer = self.startText
+            answer = self.startText
 
-        numbersList = specials[number].getElementsByTagName('number')
-        namesList = specials[number].getElementsByTagName('name')
+            numbers_list = specials[number].getElementsByTagName('number')
+            names_list = specials[number].getElementsByTagName('name')
 
-        for i in range(0, len(numbersList)):
-            numb = numbersList[i].firstChild.nodeValue
-            answer = answer + numb
-            name = namesList[i].firstChild.nodeValue
-            answer = answer + " " + name + " "
-            answer = answer + self.http + numb + "/\n"
+            for i in range(0, len(numbers_list)):
+                numb = numbers_list[i].firstChild.nodeValue
+                answer = answer + numb
+                name = names_list[i].firstChild.nodeValue
+                answer = answer + " " + name + " "
+                answer = answer + self.http + numb + "/\n"
 
         return answer
 
