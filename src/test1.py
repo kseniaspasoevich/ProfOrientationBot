@@ -1,11 +1,6 @@
 from xml.dom import minidom
 
 # в  питоне констант нет поэтому можно делать так
-from aiogram import types, Dispatcher
-from aiogram.dispatcher import FSMContext
-from aiogram.dispatcher.filters import state
-from aiogram.dispatcher.filters.state import StatesGroup, State
-from aiogram.types import message
 
 
 def SIZE_CONSTANT():
@@ -21,14 +16,10 @@ class Test:
     def __init__(self):
         self.counters = [0] * SIZE_CONSTANT()
         self.questionCounter = 0
-        self.xmldoc = minidom.parse('test1.xml')
-        self.condText = "Если Вам очень нравится то, о чем спрашивается в вопросе, в бланке ответов рядом с его " \
-                        "номером " \
-                        "поставьте два плюса (++), если просто нравится - один плюс (+), если не знаете, сомневаетесь " \
-                        "- " \
-                        "ноль (0), если не нравится - один минус (-), а если очень не нравиться - два минуса (--). " \
-                        " Исправим это позже. НАЧИНАЕМ ТЕСТ: Нажмите команду /begin"
-        self.startText = "Любите ли Вы? Нравится ли Вам? Хотели бы Вы "
+        self.xmldoc = minidom.parse('src/test1.xml')
+        self.condText = "Если Вам очень нравится то, о чем спрашивается в вопросе, в своём ответе выберите вариант " \
+                        ", который  " \
+                        "наиболее точно описывает ваше отношение."
         pass
 
     def __del__(self):
@@ -67,7 +58,7 @@ class Test:
 
 
 class Answers:
-    xmldoc = minidom.parse('answer1.xml')
+    xmldoc = minidom.parse('src/answer1.xml')
     xmldoc.normalize()
     startText = "Вам подходят следующие специальности:\n"
     emptyText = "К сожалению в данный момент в Политехническом университете нет подходящих для Вас специальностей."
@@ -106,40 +97,4 @@ button_to_value = {
     'Нет': -2
 }
 
-a = Test()
 
-
-# ответы из словаря выше
-class GetAnswer(StatesGroup):
-    answer = State()
-
-
-# здесь создаем кнопки с ответами
-async def set_answers_to_keyboards(message: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    for response in button_to_value:
-        keyboard.add(response)
-    await GetAnswer.answer.set()
-    await message.answer(a.condText, reply_markup=keyboard)
-
-
-# здесь начинаем тест
-async def begin_test(message: types.Message):
-    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    for response in button_to_value:
-        keyboard.add(response)
-    await GetAnswer.answer.set()
-    await message.answer(a.getquestion())
-
-
-async def process_chosen_answers(message: types.Message, state: FSMContext):
-    await state.update_data(chosen_answer=message.text.lower())
-    # Для последовательных шагов можно не указывать название состояния, обходясь next()
-    await GetAnswer.next()
-    await message.answer(Answers.getAnswer(Answers, a.getresult()))
-
-
-def register_handlers_test(dp: Dispatcher):
-    dp.register_message_handler(set_answers_to_keyboards, commands="test", state="*")  # ok
-    dp.register_message_handler(begin_test, commands="begin", state="*")  # ok
-    dp.register_message_handler(process_chosen_answers, state=GetAnswer.answer)
