@@ -3,7 +3,7 @@ import unittest
 
 import sys
 sys.path.append(".")
-from src.test1 import Answers, SIZE_CONSTANT
+from src.test1 import Answers, size_constant
 
 
 
@@ -19,10 +19,10 @@ class TestAnswers(unittest.TestCase):
 
     # Each test method starts with the keyword test_
     def test_War_text(self):
-        self.assertEqual(self.answers.getAnswer(14), self.answers.warText)
+        self.assertEqual(self.answers.getanswer(14), self.answers.warText)
 
     def test_getAnswerThrow(self):
-        self.assertRaises(ValueError, self.answers.getAnswer, SIZE_CONSTANT())
+        self.assertRaises(ValueError, self.answers.getanswer, size_constant())
 
 
 # Executing the te in the above test case class

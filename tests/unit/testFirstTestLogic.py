@@ -5,7 +5,7 @@ from random import randint
 
 import sys
 sys.path.append(".")
-from src.test1 import Test, MAX_QUESTIONS
+from src.test1 import Test, max_questions
 
 #from app.src.test1 import Test, MAX_QUESTIONS
 
@@ -33,7 +33,7 @@ class TestFirstTest(unittest.TestCase):
 
     def test_getRandomQuestion(self):
 
-        self.test.questionCounter = randint(0, MAX_QUESTIONS() - 1)
+        self.test.questionCounter = randint(0, max_questions() - 1)
 
         exercises = self.test.xmldoc.getElementsByTagName('exercise')
         number = exercises[self.test.questionCounter].getAttribute("n")
@@ -44,7 +44,7 @@ class TestFirstTest(unittest.TestCase):
 
     def test_RaiseError(self):
 
-        self.test.questionCounter = MAX_QUESTIONS()
+        self.test.questionCounter = max_questions()
         self.assertRaises(ValueError, self.test.getquestion)
 
     def test_incrementSuitableCounter(self):

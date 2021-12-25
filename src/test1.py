@@ -1,73 +1,61 @@
 from xml.dom import minidom
 
-# в  питоне констант нет поэтому можно делать так
 
-
-def SIZE_CONSTANT():
+def size_constant():
     return 29
 
 
-def MAX_QUESTIONS():
+def max_questions():
     return 174
 
 
 class Test:
 
     def __init__(self):
-        self.counters = [0] * SIZE_CONSTANT()
+        self.counters = [0] * size_constant()
         self.questionCounter = 0
         self.xmldoc = minidom.parse('fixture/test1.xml')
-        self.condText = "Если Вам очень нравится то, о чем спрашивается в вопросе, в своём ответе выберите вариант " \
-                        ", который  " \
-                        "наиболее точно описывает ваше отношение."
-        pass
+        self.condText = 'В своём ответе на вопрос выберите вариант, который наиболее точно описывает ваше отношение к тому, что там написано.'
 
     def __del__(self):
         self.xmldoc.unlink()
-        pass
 
     def getcounters(self):
         return self.counters
 
     def getquestion(self):
-        if self.questionCounter < MAX_QUESTIONS():
-            # вызываем здесь minidom и получаем тест вопроса по question counter
+        if self.questionCounter < max_questions():
             exercises = self.xmldoc.getElementsByTagName('exercise')
-            number = exercises[self.questionCounter].getAttribute("n")
+            number = exercises[self.questionCounter].getAttribute('n')
             itemlist = self.xmldoc.getElementsByTagName('question')
             question = itemlist[self.questionCounter].firstChild.nodeValue
-            return "" + number + ". " + question
+            return '' + number + '. ' + question
         else:
-            raise ValueError('Represents a hidden bug, do not catch this')
-        pass
+            raise ValueError('Question number out of bounds!')
 
     def answerquestion(self, answer):
-
-        # Здесь получаем тескт(а может быть и число раз кнопок 5) вопроса и далее увеличваем нужный счётчик(как я не знаю)
         exercises = self.xmldoc.getElementsByTagName('exercise')
-        number = exercises[self.questionCounter].getAttribute("n")
-        colN = int(exercises[self.questionCounter].getAttribute("col_n")) - 1
+        coln = int(exercises[self.questionCounter].getAttribute('col_n')) - 1
         self.questionCounter += 1
-        self.counters[colN] += answer
-
-        # кинуть исключение или написать, что пользователь не то сделал
+        self.counters[coln] += answer
 
     def getresult(self):
-        # пусть пока получаем в качестве результата максимум counters
         return self.counters.index(max(self.counters))
 
 
 class Answers:
-    xmldoc = minidom.parse('fixture/answer1.xml')
-    xmldoc.normalize()
-    startText = "Вам подходят следующие специальности:\n"
-    emptyText = "К сожалению в данный момент в Политехническом университете нет подходящих для Вас специальностей."
-    warText = "У Вас есть склонность к военным специальностям, поступайте на военную кафедру."
-    http = "https://dep.spbstu.ru/edu/"
+    def __init__(self):
+        self.xmldoc = minidom.parse('fixture/answer1.xml')
+        self.xmldoc.normalize()
+        self.startText = 'Вам подходят следующие специальности:\n'
+        self.emptyText = 'К сожалению в данный момент в Политехническом университете нет подходящих для Вас специальностей.'
+        self.warText = 'У Вас есть склонность к военным специальностям, поступайте на военную кафедру.'
+        self.http = 'https://dep.spbstu.ru/edu/'
 
-    def getAnswer(self, number):  # number - это максимальный counters
+
+    def getanswer(self, number):
         if number >= 29:
-            raise ValueError('Number of option can\'t be bigger than 29')
+            raise ValueError("Number of option can\'t be bigger than 29")
         else:
             if number == 14:
                 return self.warText
@@ -81,12 +69,14 @@ class Answers:
             numbers_list = specials[number].getElementsByTagName('number')
             names_list = specials[number].getElementsByTagName('name')
 
-            for i in range(0, len(numbers_list)):
-                numb = numbers_list[i].firstChild.nodeValue
-                answer = answer + numb
-                name = names_list[i].firstChild.nodeValue
-                answer = answer + " " + name + " "
-                answer = answer + self.http + numb + "/\n"
+            numsize = len(numbers_list)
+
+            for index in range(0, numsize):
+                numb = numbers_list[index].firstChild.nodeValue
+                answer += numb
+                name = names_list[index].firstChild.nodeValue
+                answer = answer + ' ' + name + ' '
+                answer = answer + self.http + numb + '/\n'
 
         return answer
 
@@ -97,7 +87,5 @@ button_to_value = {
     'Скорее да, чем нет': 1,
     'Не знаю': 0,
     'Скорее нет, чем да': -1,
-    'Нет': -2
+    'Нет': -2,
 }
-
-
