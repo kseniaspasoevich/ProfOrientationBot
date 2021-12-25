@@ -15,7 +15,6 @@ class Test:
         self.counters = [0] * size_constant()
         self.questionCounter = 0
         self.xmldoc = minidom.parse('fixture/test1.xml')
-        self.condText = 'В своём ответе на вопрос выберите вариант, который наиболее точно описывает ваше отношение к тому, что там написано.'
 
     def __del__(self):
         self.xmldoc.unlink()

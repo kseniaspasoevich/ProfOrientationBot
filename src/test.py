@@ -16,7 +16,7 @@ class Form(StatesGroup):
 
 async def cmd_help(message: types.Message):
     global test11
-    await bot.send_message(message.chat.id, md.text(test11.condText))
+    await bot.send_message(message.chat.id, md.text('В своём ответе на вопрос выберите вариант, который наиболее точно описывает ваше отношение к тому, что там написано.'))
 
 
 async def cmd_start(message: types.Message):
@@ -37,7 +37,7 @@ async def process_answer(message: types.Message, state: FSMContext):
         name1 = button_to_value[data['answer']]
         test11.answerquestion(name1)
     global counter
-    if test11.questionCounter < max_questions() / 40:
+    if test11.questionCounter < max_questions():
         await bot.send_message(message.chat.id,
                                md.text(test11.getquestion()))
         await Form.first()
