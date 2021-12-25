@@ -76,8 +76,4 @@
 C4 model
 * System Context diagram
 
-![ System Context diagram](https://github.com/dimka9910/telegramBot1/blob/master/venv/pictures/D1.png?raw=true..)
-
 * Container diagram
-
-![ Container diagram]( https://github.com/dimka9910/telegramBot1/blob/master/venv/pictures/D2.png?raw=true..)
