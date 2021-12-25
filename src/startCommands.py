@@ -3,14 +3,9 @@ from aiogram import types, Dispatcher
 
 async def process_start_command(message: types.Message):
     await message.reply('Привет! Что бы Вы хотели проделать с нашим ботом?\n'
-                        '/1-Тест профориентации\n'
-                        '/2-Политех в соцсетях\n'
+                        '/starttest-Тест профориентации\n'
+                        '/media-Политех в соцсетях\n'
                         '/help-Помочь с ботом')
-
-
-async def process_command_one(message: types.Message):
-    await message.reply('Давайте проведем тест!\n'
-                        'Выберите /test')
 
 
 async def process_help_command(message: types.Message):
@@ -21,6 +16,5 @@ async def process_help_command(message: types.Message):
 
 
 def register_handlers_basic_commands(dp: Dispatcher):
-    dp.register_message_handler(process_command_one, commands='1', state='*')
     dp.register_message_handler(process_start_command, commands='start', state='*')
     dp.register_message_handler(process_help_command, commands='help', state='*')

@@ -5,8 +5,8 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import Dispatcher
 from aiogram.types import BotCommand
 
-from choice1 import register_handlers_basic_commands
-from choice2 import register_handlers_command_two
+from startCommands import register_handlers_basic_commands
+from mediaCommand import register_handlers_command_two
 from test1 import button_to_value
 from config import cfs
 
@@ -17,9 +17,10 @@ dp = Dispatcher(bot, storage=MemoryStorage())
 async def set_commands(bot: Bot):
     commands = [
         BotCommand(command='/start', description='Добро пожаловать в бот Профориентатор!'),
-        BotCommand(command='/help', description='Узнать больше'),
-        BotCommand(command='/2', description='Политех в соцсетях'),
-        BotCommand(command='/test', description='Начать тест'),
+        BotCommand(command='/help', description='Узнать больше о боте'),
+        BotCommand(command='/media', description='Политех в соцсетях'),
+        BotCommand(command='/starttest', description='Начать тест'),
+        BotCommand(command='/helptest', description='Как решать тест'),
         BotCommand(command='/cancel', description='Отменить текущее действие'),
     ]
     await bot.set_my_commands(commands)

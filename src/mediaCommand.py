@@ -14,4 +14,4 @@ async def process_command_two(message: types.Message):
 
 
 def register_handlers_command_two(dp: Dispatcher):
-    dp.register_message_handler(process_command_two, commands='2', state='*')
+    dp.register_message_handler(process_command_two, commands='media', state='*')

@@ -14,7 +14,6 @@ class Form(StatesGroup):
     answer = State()
 
 
-
 async def cmd_help(message: types.Message):
     global test11
     await bot.send_message(message.chat.id, md.text(test11.condText))
@@ -31,7 +30,6 @@ async def cmd_start(message: types.Message):
     await bot.send_message(message.chat.id, md.text(test11.getquestion()), reply_markup=markup)
 
 
-
 async def process_answer(message: types.Message, state: FSMContext):
     global test11
     async with state.proxy() as data:
@@ -39,21 +37,20 @@ async def process_answer(message: types.Message, state: FSMContext):
         name1 = button_to_value[data['answer']]
         test11.answerquestion(name1)
     global counter
-    if test11.questionCounter < max_questions()/40:
+    if test11.questionCounter < max_questions() / 40:
         await bot.send_message(message.chat.id,
                                md.text(test11.getquestion()))
         await Form.first()
     else:
         await Form.next()
         markup = types.ReplyKeyboardRemove()
-        await bot.send_message(message.chat.id, md.text('Тест завершён, рекомендуемые специальности приведены ниже!'), reply_markup=markup, parse_mode=ParseMode.MARKDOWN)
+        await bot.send_message(message.chat.id, md.text('Тест завершён, рекомендуемые специальности приведены ниже!'),
+                               reply_markup=markup, parse_mode=ParseMode.MARKDOWN)
         await state.finish()
         answr = Answers()
         await bot.send_message(message.chat.id, md.text(answr.getanswer(test11.getresult())))
         del test11
         del answr
-
-
 
 
 async def process_answer_invalid(message: types.Message):
