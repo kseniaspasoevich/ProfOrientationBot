@@ -2,11 +2,8 @@
 import unittest
 
 import sys
-sys.path.append(".")
+sys.path.append('.')
 from src.test1 import Answers, size_constant
-
-
-
 
 
 class TestAnswers(unittest.TestCase):

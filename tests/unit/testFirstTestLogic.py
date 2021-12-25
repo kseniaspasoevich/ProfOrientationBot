@@ -4,14 +4,11 @@ from random import randint
 
 
 import sys
-sys.path.append(".")
+sys.path.append('.')
 from src.test1 import Test, max_questions
-
-#from app.src.test1 import Test, MAX_QUESTIONS
 
 
 class TestFirstTest(unittest.TestCase):
-    # setUp method is overridden from the parent class TestCase
     def setUp(self):
         self.test = Test()
         pass
@@ -20,7 +17,6 @@ class TestFirstTest(unittest.TestCase):
         del self.test
         pass
 
-    # Each test method starts with the keyword test_
     def test_init(self):
         cond = True
         for index in range(len(self.test.counters)):
@@ -40,7 +36,7 @@ class TestFirstTest(unittest.TestCase):
         itemlist = self.test.xmldoc.getElementsByTagName('question')
         question = itemlist[self.test.questionCounter].firstChild.nodeValue
 
-        self.assertEqual(self.test.getquestion(), "" + number + ". " + question)
+        self.assertEqual(self.test.getquestion(), '' + number + '. ' + question)
 
     def test_RaiseError(self):
 
@@ -49,23 +45,22 @@ class TestFirstTest(unittest.TestCase):
 
     def test_incrementSuitableCounter(self):
         exercises = self.test.xmldoc.getElementsByTagName('exercise')
-        number = exercises[self.test.questionCounter].getAttribute("n")
-        colN = int(exercises[self.test.questionCounter].getAttribute("col_n")) - 1
+        number = exercises[self.test.questionCounter].getAttribute('n')
+        coln = int(exercises[self.test.questionCounter].getAttribute('col_n')) - 1
 
         prevquestionCounter = self.test.questionCounter
 
-        prevCounterVal = self.test.counters[colN]
+        prevCounterVal = self.test.counters[coln]
 
         answ = randint(-2, 2)
 
         self.test.answerquestion(answ)
         self.assertEqual(self.test.questionCounter, prevquestionCounter + 1)
-        self.assertEqual(self.test.counters[colN], prevCounterVal + answ)
+        self.assertEqual(self.test.counters[coln], prevCounterVal + answ)
 
     def test_getResult(self):
         self.assertEqual(self.test.getresult(), self.test.counters.index(max(self.test.counters)))
 
 
-# Executing the te in the above test case class
 if __name__ == "__main__":
     unittest.main()
