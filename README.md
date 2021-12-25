@@ -84,3 +84,5 @@ C4 model
 ![ System Context diagram](https://github.com/kseniaspasoevich/ProfOrientationBot/blob/main/Documentation/ContextDiagram%20(1).png?raw=true..)
 
 * Container diagram
+
+![ Container diagram](https://github.com/kseniaspasoevich/ProfOrientationBot/blob/main/Documentation/C4%20container%20diagram.svg?raw=true..)
