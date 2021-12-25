@@ -20,4 +20,4 @@ jobs:
         pip install aiogram
     - name: Analysing the code with wemake
       run: |
-        flake8 --extend-ignore=D,E501,E303,I001,WPS,I005,S408,S318,C812 src/profbot.py src/test.py src/choice1.py src/choice2.py src/test1.py
+        flake8 --extend-ignore=D,E501,E303,I001,WPS,I005,S408,S318,C812 src/profbot.py src/test.py src/startCommands.py src/mediaCommand.py src/test1.py
