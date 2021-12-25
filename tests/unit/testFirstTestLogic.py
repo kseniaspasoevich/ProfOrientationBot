@@ -24,7 +24,7 @@ class TestFirstTest(unittest.TestCase):
                 cond = False
                 break
 
-        self.assertEqual(cond, True)
+        self.assertEqual(cond, True, 'Error! All counters must be initialized with zeroes!')
         self.assertEqual(self.test.questionCounter, 0)
 
     def test_getRandomQuestion(self):
@@ -36,7 +36,7 @@ class TestFirstTest(unittest.TestCase):
         itemlist = self.test.xmldoc.getElementsByTagName('question')
         question = itemlist[self.test.questionCounter].firstChild.nodeValue
 
-        self.assertEqual(self.test.getquestion(), '' + number + '. ' + question)
+        self.assertEqual(self.test.getquestion(), '' + number + '. ' + question,'Error! Get question returned '+self.test.getquestion()+" expected: "+'' + number + '. ' + question)
 
     def test_RaiseError(self):
 
